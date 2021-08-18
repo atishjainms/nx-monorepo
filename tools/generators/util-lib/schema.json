@@ -11,8 +11,8 @@
         "$source": "argv",
         "index": 0
       }
-    }
-    ,"directory": {
+    },
+    "directory": {
       "type": "string",
       "description": "The scope of your lib.",
       "x-prompt": {
@@ -20,12 +20,12 @@
         "type": "list",
         "items": [
           {
-            "value": "store",
-            "label": "store"
-          },
-          {
             "value": "api",
             "label": "api"
+          },
+          {
+            "value": "store",
+            "label": "store"
           },
           {
             "value": "shared",
@@ -34,8 +34,6 @@
         ]
       }
     }
-  
   },
-
-  "required": ["name","directory"]
+  "required": ["name", "directory"]
 }
