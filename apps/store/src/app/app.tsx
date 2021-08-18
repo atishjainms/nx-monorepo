@@ -29,6 +29,7 @@ export const App = () => {
     setState((state) => ({
       ...state,
       loadingState: 'loading',
+      
     }));
     fetch('/api/games')
       .then((x) => x.json())
