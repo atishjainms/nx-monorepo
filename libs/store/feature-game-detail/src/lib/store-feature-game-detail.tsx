@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 import { formatRating } from '@bg-hoard/store/util-formatters';
+import {Game} from "@bg-hoard/util-interface";
 
 type TParams = { id: string };
 
@@ -19,10 +20,10 @@ export interface StoreFeatureGameDetailProps
 
 export const StoreFeatureGameDetail = (props: StoreFeatureGameDetailProps) => {
   const [state, setState] = useState<{
-    data: any;
+    data?: Game;
     loadingState: 'success' | 'error' | 'loading';
   }>({
-    data: {},
+    data: undefined,
     loadingState: 'success',
   });
 
