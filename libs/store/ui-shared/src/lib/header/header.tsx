@@ -18,6 +18,7 @@ export interface HeaderProps {
   title: string
 }
 
+
 export const Header = ({ title }: HeaderProps) => {
   const classes = useStyles();
 
