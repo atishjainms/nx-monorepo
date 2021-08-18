@@ -24,6 +24,7 @@ export const App = () => {
     data: [],
     loadingState: 'success',
   });
+
   useEffect(() => {
     setState((state) => ({
       ...state,
