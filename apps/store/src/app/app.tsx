@@ -49,6 +49,8 @@ export const App = () => {
 
   return (
     <>
+      
+      
       <Header title="Board Game Hoard" />
       <div className={styles.container}>
         <div className={styles['games-layout']}>
