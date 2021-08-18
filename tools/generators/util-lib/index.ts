@@ -2,7 +2,7 @@ import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/workspace/generators';
 interface Schema {
   name: string;
-  directory: 'api' | 'store' | 'shared';
+  directory: 'admin' | 'api' | 'store' | 'shared';
 }
 export default async function (host: Tree, schema: Schema) {
   await libraryGenerator(host, {

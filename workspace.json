@@ -1,6 +1,108 @@
 {
   "version": 2,
   "projects": {
+    "admin-ui-app": {
+      "root": "apps/admin-ui-app",
+      "sourceRoot": "apps/admin-ui-app/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/admin-ui-app",
+            "index": "apps/admin-ui-app/src/index.html",
+            "main": "apps/admin-ui-app/src/main.tsx",
+            "polyfills": "apps/admin-ui-app/src/polyfills.ts",
+            "tsConfig": "apps/admin-ui-app/tsconfig.app.json",
+            "assets": [
+              "apps/admin-ui-app/src/favicon.ico",
+              "apps/admin-ui-app/src/assets"
+            ],
+            "styles": ["apps/admin-ui-app/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/admin-ui-app/src/environments/environment.ts",
+                  "with": "apps/admin-ui-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "admin-ui-app:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "admin-ui-app:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-ui-app/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/admin-ui-app"],
+          "options": {
+            "jestConfig": "apps/admin-ui-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "admin-ui-app-e2e": {
+      "root": "apps/admin-ui-app-e2e",
+      "sourceRoot": "apps/admin-ui-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/admin-ui-app-e2e/cypress.json",
+            "tsConfig": "apps/admin-ui-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "admin-ui-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin-ui-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/admin-ui-app-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "api": {
       "root": "apps/api",
       "sourceRoot": "apps/api/src",
