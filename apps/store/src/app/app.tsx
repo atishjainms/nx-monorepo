@@ -19,6 +19,7 @@ import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 export const App = () => {
   const [state, setState] = useState<{
     data: any[];
+    
     loadingState: 'success' | 'error' | 'loading';
   }>({
     data: [],
